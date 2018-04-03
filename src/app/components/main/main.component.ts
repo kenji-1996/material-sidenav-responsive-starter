@@ -1,4 +1,5 @@
 import {Component, NgZone, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-main',
@@ -15,13 +16,14 @@ export class MainComponent implements OnInit {
     title = 'Responsive Sidenav Starter';
     navList: NavList[];
 
-    constructor(public ngZone:NgZone,)
+    constructor(public ngZone:NgZone,
+                public route: Router,)
     {
         this.navList = [
             { categoryName: 'Tab 1', icon: 'face', dropDown:false,
                 subCategory:
                     [
-                        { subCategoryName: 'Item 1', subCategoryLink:'/link1', visable: true, },
+                        { subCategoryName: 'Item 1', subCategoryLink:'/link', subCategoryQuery: {title: 'query item 1'}, visable: true, },
                         { subCategoryName: 'Item 2', subCategoryLink:'/link1', visable: true, },
                         { subCategoryName: 'Item 3', subCategoryLink:'/link1', visable: true, },
                     ]
@@ -85,5 +87,6 @@ export class NavList {
 export class NavListItem {
     subCategoryName: string;
     subCategoryLink: string;
+    subCategoryQuery?: any;
     visable: boolean;
 }

@@ -3,7 +3,7 @@
     <button mat-icon-button (click)="start.toggle()" class="icon-padding">
         <mat-icon aria-hidden="true">menu</mat-icon>
     </button>
-    <button mat-button routerLink="/app/home"><strong>{{title}}</strong></button>
+    <button mat-button routerLink="/"><strong>{{title}}</strong></button>
 
     <!-- This fills the remaining space of the current row -->
     <span class="fill-remaining-space"></span>
@@ -32,7 +32,7 @@
                             <ng-container *ngFor="let subCategory of nav.subCategory">
                                 <ng-container *ngIf="subCategory.visable"> <!--Sub category list-->
                                     <mat-list-item (click)="mode === 'over'? start.close() : null" routerLinkActive="mat-icon-active" style="margin-left: -30px;margin-right: -24px;">
-                                        <span mat-line style="margin-left: 30px;">{{subCategory.subCategoryName}}</span>
+                                        <span [routerLink]="subCategory.subCategoryLink" [queryParams]="subCategory.subCategoryQuery" mat-line style="margin-left: 30px;">{{subCategory.subCategoryName}}</span>
                                         <button mat-icon-button >
                                             <mat-icon>info</mat-icon>
                                         </button>
@@ -49,7 +49,7 @@
 
     <mat-sidenav-content style="margin-top:64px;">
         <div style="margin: 10px;">
-
+            <router-outlet></router-outlet>
         </div>
         <div style="height: 64px;"></div>
     </mat-sidenav-content>
@@ -58,7 +58,7 @@
 
 
 <mat-menu x-position="before" #menu="matMenu">
-    <button mat-menu-item routerLink="/app/user/profile"><mat-icon aria-hidden="true">settings</mat-icon>Settings</button>
-    <button mat-menu-item routerLink="/app/user/profile"><mat-icon aria-hidden="true">account_box</mat-icon>Profile</button>
-    <button mat-menu-item routerLink="/app/user/sign-out"><mat-icon aria-hidden="true">exit_to_app</mat-icon>Sign out</button>
+    <button mat-menu-item routerLink="/profile"><mat-icon aria-hidden="true">settings</mat-icon>Settings</button>
+    <button mat-menu-item routerLink="/profile"><mat-icon aria-hidden="true">account_box</mat-icon>Profile</button>
+    <button mat-menu-item routerLink="/profile"><mat-icon aria-hidden="true">exit_to_app</mat-icon>Sign out</button>
 </mat-menu>
