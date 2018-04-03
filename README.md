@@ -1,6 +1,14 @@
-# ShopSearchMockup
+# Material 5 Responsive Sidenav starter
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.1.
+A small project I created to allow me and others to quickly jump into a project without trying to deal with setting up a responsive layout and/or attractive layout. Adds a responsive element for sidenav that will update depending on the size of the users screen.
+
+## Preview
+Here is the layout on a standard screen size, the mode of the sidebar is currently 'push' meaning it will push out the main content:
+![Image of Yaktocat](https://i.imgur.com/OWp3T01.png)
+
+After it falls below 800px in width the mode changes to 'over' and will render over when open like so:
+
+
 
 ## Development server
 
