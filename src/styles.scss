@@ -1,0 +1,22 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "theme";
+
+
+//Material 2 theme
+// Active icon color in list nav
+mat-list {
+  [mat-list-item].active {
+    background-color: mat-color($accent);
+    color: mat-color($accent, default-contrast)
+    mat-icon {
+
+    }
+    mat-icon[mat-list-icon] {
+      color: mat-color($accent);
+    }
+  }
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}

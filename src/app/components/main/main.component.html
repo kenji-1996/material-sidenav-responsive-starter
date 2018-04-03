@@ -1,0 +1,64 @@
+<mat-toolbar color="primary" class="main-nav mat-elevation-z4">
+
+    <button mat-icon-button (click)="start.toggle()" class="icon-padding">
+        <mat-icon aria-hidden="true">menu</mat-icon>
+    </button>
+    <button mat-button routerLink="/app/home"><strong>{{title}}</strong></button>
+
+    <!-- This fills the remaining space of the current row -->
+    <span class="fill-remaining-space"></span>
+
+    <button mat-icon-button class="icon-padding">
+        <mat-icon aria-hidden="true">notifications</mat-icon>
+    </button>
+
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+
+    <mat-sidenav class="mat-elevation-z10" #start [opened]="open" fixedTopGap="64" [mode]="mode" fixedInViewport="true" style="width:240px;">
+
+        <mat-list dense>
+            <ng-container *ngFor="let nav of navList">
+                <mat-expansion-panel class="mat-elevation-z0" hideToggle="true" [expanded]="nav.dropDown">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <mat-icon mat-list-icon>{{nav.icon}}</mat-icon>
+                            <span class="nav-list-item-text">{{nav.categoryName}}</span>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-nav-list>
+                        <div style="margin-top: -20px;">
+                            <ng-container *ngFor="let subCategory of nav.subCategory">
+                                <ng-container *ngIf="subCategory.visable"> <!--Sub category list-->
+                                    <mat-list-item (click)="mode === 'over'? start.close() : null" routerLinkActive="mat-icon-active" style="margin-left: -30px;margin-right: -24px;">
+                                        <span mat-line style="margin-left: 30px;">{{subCategory.subCategoryName}}</span>
+                                        <button mat-icon-button >
+                                            <mat-icon>info</mat-icon>
+                                        </button>
+                                    </mat-list-item>
+                                </ng-container>
+                            </ng-container>
+                        </div>
+                    </mat-nav-list>
+                </mat-expansion-panel>
+            </ng-container>
+        </mat-list>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content style="margin-top:64px;">
+        <div style="margin: 10px;">
+
+        </div>
+        <div style="height: 64px;"></div>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+
+<mat-menu x-position="before" #menu="matMenu">
+    <button mat-menu-item routerLink="/app/user/profile"><mat-icon aria-hidden="true">settings</mat-icon>Settings</button>
+    <button mat-menu-item routerLink="/app/user/profile"><mat-icon aria-hidden="true">account_box</mat-icon>Profile</button>
+    <button mat-menu-item routerLink="/app/user/sign-out"><mat-icon aria-hidden="true">exit_to_app</mat-icon>Sign out</button>
+</mat-menu>
