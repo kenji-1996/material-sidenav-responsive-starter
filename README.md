@@ -4,10 +4,12 @@ A small project I created to allow me and others to quickly jump into a project 
 
 ## Preview
 Here is the layout on a standard screen size, the mode of the sidebar is currently 'push' meaning it will push out the main content:
-![Image of Yaktocat](https://i.imgur.com/OWp3T01.png)
+![Image of starting nav position](https://i.imgur.com/9own28w.jpg)
+Now here the width has dropped below 800 (changeable depending on your needs) and has changed to 'over'
+![Image of nav set to over](https://i.imgur.com/ch540QU.png)
 
-After it falls below 800px in width the mode changes to 'over' and will render over when open like so:
-
+## Routing
+I have included basic routing as well, shows how you can pass in query params into the navbar and shows an example of using those passed params.
 
 
 ## Development server
